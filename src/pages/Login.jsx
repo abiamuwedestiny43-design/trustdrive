@@ -7,8 +7,7 @@ import Input from '../components/common/Input';
 import { User, ShieldCheck, Bike, RefreshCcw, Phone, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { sendSMS } from '../utils/twilio';
 import OtpInput from '../components/common/OtpInput';
-
-import bgImage from '../assets/homepage-bg.png';
+import LiveRiderMap from '../components/LiveRiderMap';
 
 const Login = () => {
     const { login, signup, user } = useAuth();
@@ -126,19 +125,21 @@ const Login = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#1ECB73',
-            backgroundImage: `linear-gradient(rgba(30, 203, 115, 0.85), rgba(30, 203, 115, 0.95)), url(${bgImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundColor: '#0f172a',
             position: 'relative',
+            overflow: 'hidden'
         }}>
-            <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '420px', padding: '1rem' }}>
+            {/* Live Map Background System */}
+            <LiveRiderMap />
+
+            <div style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '420px', padding: '1rem' }}>
                 <Card glass style={{ 
                     padding: '3rem 2.5rem', 
-                    background: 'white', 
+                    background: 'rgba(255, 255, 255, 0.95)', 
                     borderRadius: '24px', 
-                    boxShadow: '0 30px 60px -12px rgba(0,0,0,0.3)',
-                    border: 'none'
+                    boxShadow: '0 30px 60px -12px rgba(0,0,0,0.5)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    backdropFilter: 'blur(20px)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
                         <div style={{
