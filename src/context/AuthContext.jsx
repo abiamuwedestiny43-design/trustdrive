@@ -48,6 +48,7 @@ export const AuthProvider = ({ children }) => {
             name,
             email,
             role, // 'admin', 'driver', 'user'
+            isApproved: role === 'admin', // New riders/drivers require admin approval
             createdAt: new Date().toISOString(),
             ...additionalData
         });

@@ -1,0 +1,43 @@
+export const nigeriaLocations = {
+  "Abia": ["Aba", "Umuahia", "Ohafia", "Arochukwu"],
+  "Adamawa": ["Yola", "Mubi", "Jimeta", "Ganye"],
+  "Akwa Ibom": ["Uyo", "Eket", "Ikot Ekpene", "Oron"],
+  "Anambra": ["Awka", "Onitsha", "Nnewi", "Ihiala"],
+  "Bauchi": ["Bauchi", "Azare", "Misau", "Jama'are"],
+  "Bayelsa": ["Yenagoa", "Ogbia", "Sagbama", "Brass"],
+  "Benue": ["Makurdi", "Gboko", "Otukpo", "Katsina-Ala"],
+  "Borno": ["Maiduguri", "Biu", "Dikwa", "Gwoza"],
+  "Cross River": ["Calabar", "Akamkpa", "Ikom", "Obudu"],
+  "Delta": ["Asaba", "Warri", "Sapele", "Ughelli"],
+  "Ebonyi": ["Abakaliki", "Afikpo", "Onueke", "Edda"],
+  "Edo": ["Benin City", "Auchi", "Uromi", "Ekpoma"],
+  "Ekiti": ["Ado-Ekiti", "Ikere-Ekiti", "Ijero-Ekiti", "Otun-Ekiti"],
+  "Enugu": ["Enugu", "Nsukka", "Udi", "Oji River"],
+  "FCT": ["Abuja", "Gwagwalada", "Kuje", "Bwari"],
+  "Gombe": ["Gombe", "Kaltungo", "Dukku", "Billiri"],
+  "Imo": ["Owerri", "Orlu", "Okigwe", "Oguta"],
+  "Jigawa": ["Dutse", "Hadejia", "Gumel", "Kazaure"],
+  "Kaduna": ["Kaduna", "Zaria", "Kafanchan", "Kachia"],
+  "Kano": ["Kano", "Wudil", "Gwarzo", "Dambatta"],
+  "Katsina": ["Katsina", "Daura", "Funtua", "Malumfashi"],
+  "Kebbi": ["Birnin Kebbi", "Argungu", "Yauri", "Zuru"],
+  "Kogi": ["Lokoja", "Okene", "Idah", "Anyigba"],
+  "Kwara": ["Ilorin", "Offa", "Omu-Aran", "Lafiagi"],
+  "Lagos": ["Lagos Island", "Ikeja", "Lekki", "Ikorodu", "Epe", "Badagry", "Surulere"],
+  "Nasarawa": ["Lafia", "Keffi", "Akwanga", "Nasarawa"],
+  "Niger": ["Minna", "Bida", "Kontagora", "Suleja"],
+  "Ogun": ["Abeokuta", "Ijebu-Ode", "Sagamu", "Ota"],
+  "Ondo": ["Akure", "Ondo City", "Owo", "Ikare"],
+  "Osun": ["Osogbo", "Ife", "Ilesa", "Ede"],
+  "Oyo": ["Ibadan", "Ogbomosho", "Oyo City", "Iseyin"],
+  "Plateau": ["Jos", "Bukuru", "Pankshin", "Shendam"],
+  "Rivers": ["Port Harcourt", "Obio-Akpor", "Bonny", "Ahoada"],
+  "Sokoto": ["Sokoto", "Tambuwal", "Wurno", "Gummi"],
+  "Taraba": ["Jalingo", "Wukari", "Bali", "Gembu"],
+  "Yobe": ["Damaturu", "Potiskum", "Gashua", "Nguru"],
+  "Zamfara": ["Gusau", "Kaura Namoda", "Talata Mafara", "Anka"]
+};
+
+// Flat list for easy searching
+export const allNigeriaCities = Object.values(nigeriaLocations).flat();
+export const allNigeriaStates = Object.keys(nigeriaLocations);

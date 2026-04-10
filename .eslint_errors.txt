@@ -1,0 +1,917 @@
+
+> trustdrive@0.0.0 lint
+> eslint .
+
+
+/Users/apple/trustdrive/android/app/src/main/assets/public/assets/index-BLxlk6yH.js
+    1:5568    error  'process' is not defined                                                            no-undef
+    1:5594    error  'process' is not defined                                                            no-undef
+    1:10404   error  'setImmediate' is not defined                                                       no-undef
+    1:11289   error  Unreachable code                                                                    no-unreachable
+    1:16630   error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                                     no-undef
+    1:16687   error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                                     no-undef
+    1:20060   error  Empty block statement                                                               no-empty
+    6:206     error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:548     error  Empty block statement                                                               no-empty
+    8:4262    error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:4362    error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:4445    error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:5267    error  Unexpected combined character in character class                                    no-misleading-character-class
+    8:6417    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:8645    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:10763   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:10793   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:10912   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:10973   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:13936   error  Unexpected control character(s) in regular expression: \x00, \x1f                   no-control-regex
+    8:15979   error  Expected to return a value in method 'get'                                          getter-return
+    8:16669   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:17011   error  Invalid typeof comparison value                                                     valid-typeof
+    8:17185   error  Invalid typeof comparison value                                                     valid-typeof
+    8:19050   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:25361   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:26671   error  'process' is not defined                                                            no-undef
+    8:26697   error  'process' is not defined                                                            no-undef
+    8:45930   error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:46424   error  Unexpected constant condition                                                       no-constant-condition
+    8:59533   error  Empty block statement                                                               no-empty
+    8:65087   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:69988   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:72899   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:74022   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:75714   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:82323   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:87311   error  Unnecessary escape character: \/                                                    no-useless-escape
+    8:98122   error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:99075   error  Empty block statement                                                               no-empty
+    8:99354   error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:102550  error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:104934  error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:106762  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:107435  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:113229  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:113563  error  Unexpected constant condition                                                       no-constant-condition
+    8:116207  error  Unexpected constant condition                                                       no-constant-condition
+    8:116834  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:117155  error  Unexpected constant condition                                                       no-constant-condition
+    8:117557  error  Expected a 'break' statement before 'default'                                       no-fallthrough
+    8:120084  error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:120918  error  Empty block statement                                                               no-empty
+    8:121678  error  Empty block statement                                                               no-empty
+    8:123155  error  'i' is defined but never used                                                       no-unused-vars
+    8:125547  error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:129319  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:129512  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:130773  error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:132389  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:133946  error  Unexpected control character(s) in regular expression: \x00                         no-control-regex
+    9:476     error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    9:5078    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:5650    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:5989    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:6394    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:6510    error  Expected a 'break' statement before 'default'                                       no-fallthrough
+    9:6672    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:6932    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:7405    error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    9:7544    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:7723    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:7808    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8073    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8175    error  Expected a 'break' statement before 'default'                                       no-fallthrough
+    9:8185    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8271    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8679    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8754    error  Expected a 'break' statement before 'default'                                       no-fallthrough
+    9:8764    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8832    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8951    error  Expected a 'break' statement before 'default'                                       no-fallthrough
+    9:9132    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:9163    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:9287    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:9565    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:9598    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:9700    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10046   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10079   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10152   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10374   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10410   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10486   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10593   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10625   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10697   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:18758   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    9:19831   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    9:22364   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    9:36069   error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                                     no-undef
+    9:36168   error  Empty block statement                                                               no-empty
+    9:37314   error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                                     no-undef
+    9:37371   error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                                     no-undef
+    9:37934   error  Empty block statement                                                               no-empty
+    9:47820   error  Empty block statement                                                               no-empty
+    9:48037   error  Empty block statement                                                               no-empty
+   11:4337    error  'l' is assigned a value but never used                                              no-unused-vars
+   11:4896    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+   11:7029    error  'r' is defined but never used                                                       no-unused-vars
+   11:16472   error  Empty block statement                                                               no-empty
+   11:25590   error  'global' is not defined                                                             no-undef
+   25:569     error  'global' is not defined                                                             no-undef
+   25:754     error  'chrome' is not defined                                                             no-undef
+   25:794     error  'browser' is not defined                                                            no-undef
+   25:3900    error  Empty block statement                                                               no-empty
+   25:5650    error  Empty block statement                                                               no-empty
+   25:6372    error  Empty block statement                                                               no-empty
+   25:6551    error  Empty block statement                                                               no-empty
+   25:7776    error  Empty block statement                                                               no-empty
+   25:8160    error  Empty block statement                                                               no-empty
+   25:23664   error  'global' is not defined                                                             no-undef
+   25:23854   error  'G' is defined but never used                                                       no-unused-vars
+   25:34301   error  'f.prototype.add' is assigned to itself                                             no-self-assign
+   25:34475   error  'f.prototype.toString' is assigned to itself                                        no-self-assign
+   25:36448   error  'global' is not defined                                                             no-undef
+   25:37441   error  'T' is defined but never used                                                       no-unused-vars
+   25:37443   error  'C' is defined but never used                                                       no-unused-vars
+   25:37495   error  'd' is defined but never used                                                       no-unused-vars
+   25:37497   error  'T' is defined but never used                                                       no-unused-vars
+   25:37499   error  'C' is defined but never used                                                       no-unused-vars
+   25:37509   error  'x' is a function                                                                   no-func-assign
+   25:37550   error  'T' is defined but never used                                                       no-unused-vars
+   25:37815   error  'nt' is defined but never used                                                      no-unused-vars
+   25:37982   error  'AsyncContext' is not defined                                                       no-undef
+   25:38022   error  'AsyncContext' is not defined                                                       no-undef
+   25:38174   error  'T' is defined but never used                                                       no-unused-vars
+   25:39144   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+   25:39261   error  'this.u' is assigned to itself                                                      no-self-assign
+   25:39275   error  'this.C' is assigned to itself                                                      no-self-assign
+   25:39734   error  Expected to return a value in method 'get'                                          getter-return
+   25:39846   error  Empty block statement                                                               no-empty
+   25:41742   error  'T' is defined but never used                                                       no-unused-vars
+   25:43954   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+   25:45924   error  'T' is defined but never used                                                       no-unused-vars
+   25:46160   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+   25:46766   error  'd' is defined but never used                                                       no-unused-vars
+   29:2636    error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+   29:3700    error  Empty block statement                                                               no-empty
+   30:2227    error  Empty block statement                                                               no-empty
+   30:4602    error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+   30:5943    error  Unnecessary escape character: \/                                                    no-useless-escape
+   30:5945    error  Unnecessary escape character: \?                                                    no-useless-escape
+   30:5958    error  Unnecessary escape character: \?                                                    no-useless-escape
+   30:5971    error  Unnecessary escape character: \?                                                    no-useless-escape
+   30:5983    error  Unnecessary escape character: \?                                                    no-useless-escape
+   30:8376    error  Empty block statement                                                               no-empty
+   32:2321    error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+   32:2754    error  Empty block statement                                                               no-empty
+   33:1854    error  Empty block statement                                                               no-empty
+   33:4275    error  Unreachable code                                                                    no-unreachable
+   33:8872    error  'd' is defined but never used                                                       no-unused-vars
+   33:9067    error  'Sn.prototype.close' is assigned to itself                                          no-self-assign
+   33:11154   error  't' is defined but never used                                                       no-unused-vars
+   33:26542   error  's' is defined but never used                                                       no-unused-vars
+   33:33377   error  't' is defined but never used                                                       no-unused-vars
+   33:33379   error  'n' is defined but never used                                                       no-unused-vars
+   33:33381   error  's' is defined but never used                                                       no-unused-vars
+   33:33383   error  'l' is defined but never used                                                       no-unused-vars
+   33:33385   error  'h' is defined but never used                                                       no-unused-vars
+   33:33411   error  's' is defined but never used                                                       no-unused-vars
+   33:33440   error  't' is defined but never used                                                       no-unused-vars
+   33:33442   error  'n' is defined but never used                                                       no-unused-vars
+   33:33493   error  't' is defined but never used                                                       no-unused-vars
+   33:33522   error  't' is defined but never used                                                       no-unused-vars
+   33:33932   error  's' is defined but never used                                                       no-unused-vars
+   33:39909   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+   33:43020   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   36:11144   error  'Buffer' is not defined                                                             no-undef
+   36:15804   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   36:15893   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   36:15992   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   36:16085   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   36:19324   error  't' is defined but never used                                                       no-unused-vars
+   36:19326   error  'n' is defined but never used                                                       no-unused-vars
+   36:19366   error  't' is defined but never used                                                       no-unused-vars
+   36:19368   error  'n' is defined but never used                                                       no-unused-vars
+   36:19413   error  't' is defined but never used                                                       no-unused-vars
+   36:19456   error  't' is defined but never used                                                       no-unused-vars
+   36:19458   error  'n' is defined but never used                                                       no-unused-vars
+   36:19508   error  't' is defined but never used                                                       no-unused-vars
+   36:19510   error  'n' is defined but never used                                                       no-unused-vars
+   36:19550   error  't' is defined but never used                                                       no-unused-vars
+   36:19552   error  'n' is defined but never used                                                       no-unused-vars
+   36:19592   error  't' is defined but never used                                                       no-unused-vars
+   36:19594   error  'n' is defined but never used                                                       no-unused-vars
+   36:19650   error  't' is defined but never used                                                       no-unused-vars
+   36:19690   error  't' is defined but never used                                                       no-unused-vars
+   36:19692   error  'n' is defined but never used                                                       no-unused-vars
+   36:19755   error  't' is defined but never used                                                       no-unused-vars
+   36:19757   error  'n' is defined but never used                                                       no-unused-vars
+   36:19810   error  't' is defined but never used                                                       no-unused-vars
+   36:19812   error  'n' is defined but never used                                                       no-unused-vars
+   36:19814   error  's' is defined but never used                                                       no-unused-vars
+   36:19856   error  't' is defined but never used                                                       no-unused-vars
+   36:19858   error  'n' is defined but never used                                                       no-unused-vars
+   41:6855    error  't' is defined but never used                                                       no-unused-vars
+   41:8065    error  't' is defined but never used                                                       no-unused-vars
+   41:8761    error  't' is defined but never used                                                       no-unused-vars
+   41:9895    error  't' is defined but never used                                                       no-unused-vars
+   41:10030   error  't' is defined but never used                                                       no-unused-vars
+   41:10084   error  'n' is defined but never used                                                       no-unused-vars
+   41:11384   error  't' is defined but never used                                                       no-unused-vars
+   41:11386   error  'n' is defined but never used                                                       no-unused-vars
+   41:11388   error  's' is defined but never used                                                       no-unused-vars
+   41:11390   error  'l' is defined but never used                                                       no-unused-vars
+   41:11465   error  't' is defined but never used                                                       no-unused-vars
+   41:11496   error  't' is defined but never used                                                       no-unused-vars
+   41:12131   error  't' is defined but never used                                                       no-unused-vars
+   41:12209   error  't' is defined but never used                                                       no-unused-vars
+   41:12256   error  't' is defined but never used                                                       no-unused-vars
+   41:13090   error  't' is defined but never used                                                       no-unused-vars
+   41:14144   error  't' is defined but never used                                                       no-unused-vars
+   41:16007   error  't' is defined but never used                                                       no-unused-vars
+   41:16342   error  't' is defined but never used                                                       no-unused-vars
+   41:16588   error  's' is defined but never used                                                       no-unused-vars
+   41:24379   error  'A' is defined but never used                                                       no-unused-vars
+   41:27176   error  't' is defined but never used                                                       no-unused-vars
+   41:27200   error  't' is defined but never used                                                       no-unused-vars
+   41:27202   error  'n' is defined but never used                                                       no-unused-vars
+   41:27204   error  's' is defined but never used                                                       no-unused-vars
+   41:27307   error  's' is defined but never used                                                       no-unused-vars
+   41:27644   error  't' is defined but never used                                                       no-unused-vars
+   41:27646   error  'n' is defined but never used                                                       no-unused-vars
+   41:27648   error  's' is defined but never used                                                       no-unused-vars
+   41:27667   error  't' is defined but never used                                                       no-unused-vars
+   41:27703   error  't' is defined but never used                                                       no-unused-vars
+   41:27726   error  't' is defined but never used                                                       no-unused-vars
+   41:27743   error  't' is defined but never used                                                       no-unused-vars
+   41:29456   error  'f' is defined but never used                                                       no-unused-vars
+   41:30690   error  'h' is defined but never used                                                       no-unused-vars
+   41:30855   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   41:31082   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   42:513     error  'f' is defined but never used                                                       no-unused-vars
+   42:1762    error  'n' is defined but never used                                                       no-unused-vars
+   42:5487    error  'f' is defined but never used                                                       no-unused-vars
+   42:6870    error  's' is defined but never used                                                       no-unused-vars
+   45:6458    error  'n' is defined but never used                                                       no-unused-vars
+   45:16259   error  't' is defined but never used                                                       no-unused-vars
+   45:16261   error  'n' is defined but never used                                                       no-unused-vars
+   45:16279   error  't' is defined but never used                                                       no-unused-vars
+   45:16281   error  'n' is defined but never used                                                       no-unused-vars
+   45:16370   error  't' is defined but never used                                                       no-unused-vars
+   45:16413   error  't' is defined but never used                                                       no-unused-vars
+   45:16838   error  't' is defined but never used                                                       no-unused-vars
+   45:17514   error  't' is defined but never used                                                       no-unused-vars
+   46:315     error  't' is defined but never used                                                       no-unused-vars
+   46:5038    error  't' is defined but never used                                                       no-unused-vars
+   46:12608   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   46:19244   error  'n' is defined but never used                                                       no-unused-vars
+   46:36578   error  Empty block statement                                                               no-empty
+   46:47153   error  't' is defined but never used                                                       no-unused-vars
+   46:47155   error  'n' is defined but never used                                                       no-unused-vars
+   46:47175   error  't' is defined but never used                                                       no-unused-vars
+   46:47177   error  'n' is defined but never used                                                       no-unused-vars
+   46:48837   error  Empty block statement                                                               no-empty
+   46:49049   error  Empty block statement                                                               no-empty
+   46:49561   error  Unnecessary escape character: \.                                                    no-useless-escape
+   46:49577   error  Unnecessary escape character: \.                                                    no-useless-escape
+   46:50993   error  Empty block statement                                                               no-empty
+   46:55131   error  Empty block statement                                                               no-empty
+   46:63744   error  't' is defined but never used                                                       no-unused-vars
+   46:63746   error  'n' is defined but never used                                                       no-unused-vars
+   46:63788   error  't' is defined but never used                                                       no-unused-vars
+   46:63790   error  'n' is defined but never used                                                       no-unused-vars
+   46:63833   error  't' is defined but never used                                                       no-unused-vars
+   46:63835   error  'n' is defined but never used                                                       no-unused-vars
+   46:63877   error  't' is defined but never used                                                       no-unused-vars
+   46:63879   error  'n' is defined but never used                                                       no-unused-vars
+   46:64282   error  Promise executor functions should not be async                                      no-async-promise-executor
+   46:66077   error  'l' is defined but never used                                                       no-unused-vars
+   46:66901   error  'n' is defined but never used                                                       no-unused-vars
+   46:68769   error  't' is defined but never used                                                       no-unused-vars
+   46:68816   error  't' is defined but never used                                                       no-unused-vars
+   46:68818   error  'n' is defined but never used                                                       no-unused-vars
+   46:68879   error  't' is defined but never used                                                       no-unused-vars
+   46:69946   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   46:70258   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   46:81607   error  't' is defined but never used                                                       no-unused-vars
+   46:81609   error  'n' is defined but never used                                                       no-unused-vars
+   46:81629   error  't' is defined but never used                                                       no-unused-vars
+   46:81631   error  'n' is defined but never used                                                       no-unused-vars
+   46:86333   error  't' is defined but never used                                                       no-unused-vars
+   46:86335   error  'n' is defined but never used                                                       no-unused-vars
+   46:86847   error  Empty block statement                                                               no-empty
+   46:86966   error  Empty block statement                                                               no-empty
+   46:89692   error  Promise executor functions should not be async                                      no-async-promise-executor
+   46:95342   error  Empty block statement                                                               no-empty
+   46:96079   error  'gapi' is not defined                                                               no-undef
+   46:96121   error  'gapi' is not defined                                                               no-undef
+   46:96255   error  'gapi' is not defined                                                               no-undef
+   46:96359   error  'gapi' is not defined                                                               no-undef
+   46:97410   error  Promise executor functions should not be async                                      no-async-promise-executor
+   46:97844   error  Empty block statement                                                               no-empty
+   46:98341   error  Empty block statement                                                               no-empty
+   46:98674   error  'h' is defined but never used                                                       no-unused-vars
+   46:100465  error  'gapi' is not defined                                                               no-undef
+   46:100718  error  'gapi' is not defined                                                               no-undef
+   46:102691  error  'n' is defined but never used                                                       no-unused-vars
+   46:102693  error  's' is defined but never used                                                       no-unused-vars
+   46:119443  error  'h' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u   no-unused-vars
+   46:130569  error  'L' is not defined                                                                  no-undef
+   46:130573  error  'L' is not defined                                                                  no-undef
+   46:130631  error  'L' is not defined                                                                  no-undef
+   46:143622  error  Expected to return a value in method 'get'                                          getter-return
+   46:143763  error  Empty block statement                                                               no-empty
+   46:257912  error  Empty block statement                                                               no-empty
+   46:278614  error  'n' is defined but never used                                                       no-unused-vars
+   46:286324  error  't' is defined but never used                                                       no-unused-vars
+   89:5265    error  'it' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  204:12222   error  't' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u   no-unused-vars
+  204:36200   error  's' is defined but never used                                                       no-unused-vars
+  204:36391   error  'f' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u   no-unused-vars
+  204:37288   error  'n' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u   no-unused-vars
+  204:37382   error  'A' is assigned a value but never used                                              no-unused-vars
+
+/Users/apple/trustdrive/android/app/src/main/assets/public/assets/workbox-window.prod.es5-BIl4cyR9.js
+  1:35    error  '_' is not defined             no-undef
+  1:44    error  Empty block statement          no-empty
+  2:109   error  'w' is a function              no-func-assign
+  2:533   error  '_' is not defined             no-undef
+  2:542   error  Empty block statement          no-empty
+  2:916   error  'r' is defined but never used  no-unused-vars
+  2:4096  error  'e' is defined but never used  no-unused-vars
+
+/Users/apple/trustdrive/android/app/src/main/assets/public/sw.js
+  1:213  error  'importScripts' is not defined  no-undef
+  1:571  error  'define' is not defined         no-undef
+
+/Users/apple/trustdrive/android/app/src/main/assets/public/workbox-8c29f6e4.js
+  1:1      error  'define' is not defined        no-undef
+  1:77     error  '_' is not defined             no-undef
+  1:87     error  't' is defined but never used  no-unused-vars
+  1:89     error  Empty block statement          no-empty
+  1:288    error  '_' is not defined             no-undef
+  1:298    error  't' is defined but never used  no-unused-vars
+  1:300    error  Empty block statement          no-empty
+  1:3195   error  'registration' is not defined  no-undef
+  1:3413   error  '_' is not defined             no-undef
+  1:3423   error  't' is defined but never used  no-unused-vars
+  1:3425   error  Empty block statement          no-empty
+  1:4879   error  't' is defined but never used  no-unused-vars
+  1:5183   error  '_' is not defined             no-undef
+  1:5193   error  't' is defined but never used  no-unused-vars
+  1:5195   error  Empty block statement          no-empty
+  1:5557   error  'FetchEvent' is not defined    no-undef
+  1:8891   error  'FetchEvent' is not defined    no-undef
+  1:9598   error  'r' is defined but never used  no-unused-vars
+  1:9600   error  Empty block statement          no-empty
+  1:14820  error  't' is defined but never used  no-unused-vars
+
+/Users/apple/trustdrive/ios/App/App/public/assets/index-CJN4LE8r.js
+    1:5568    error  'process' is not defined                                                            no-undef
+    1:5594    error  'process' is not defined                                                            no-undef
+    1:10404   error  'setImmediate' is not defined                                                       no-undef
+    1:11289   error  Unreachable code                                                                    no-unreachable
+    1:16630   error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                                     no-undef
+    1:16687   error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                                     no-undef
+    1:20060   error  Empty block statement                                                               no-empty
+    6:206     error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:548     error  Empty block statement                                                               no-empty
+    8:4262    error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:4362    error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:4445    error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:5267    error  Unexpected combined character in character class                                    no-misleading-character-class
+    8:6417    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:8645    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:10763   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:10793   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:10912   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:10973   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:13936   error  Unexpected control character(s) in regular expression: \x00, \x1f                   no-control-regex
+    8:15979   error  Expected to return a value in method 'get'                                          getter-return
+    8:16669   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:17011   error  Invalid typeof comparison value                                                     valid-typeof
+    8:17185   error  Invalid typeof comparison value                                                     valid-typeof
+    8:19050   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:25361   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:26671   error  'process' is not defined                                                            no-undef
+    8:26697   error  'process' is not defined                                                            no-undef
+    8:45930   error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:46424   error  Unexpected constant condition                                                       no-constant-condition
+    8:59533   error  Empty block statement                                                               no-empty
+    8:65087   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:69988   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:72899   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:74022   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:75714   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:82323   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:87311   error  Unnecessary escape character: \/                                                    no-useless-escape
+    8:98122   error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:99075   error  Empty block statement                                                               no-empty
+    8:99354   error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:102550  error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:104934  error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    8:106762  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:107435  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:113229  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:113563  error  Unexpected constant condition                                                       no-constant-condition
+    8:116207  error  Unexpected constant condition                                                       no-constant-condition
+    8:116834  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:117155  error  Unexpected constant condition                                                       no-constant-condition
+    8:117557  error  Expected a 'break' statement before 'default'                                       no-fallthrough
+    8:120084  error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:120918  error  Empty block statement                                                               no-empty
+    8:121678  error  Empty block statement                                                               no-empty
+    8:123155  error  'i' is defined but never used                                                       no-unused-vars
+    8:125547  error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:129319  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:129512  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:130773  error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    8:132389  error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    8:133946  error  Unexpected control character(s) in regular expression: \x00                         no-control-regex
+    9:476     error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    9:5078    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:5650    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:5989    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:6394    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:6510    error  Expected a 'break' statement before 'default'                                       no-fallthrough
+    9:6672    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:6932    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:7405    error  Expected a 'break' statement before 'case'                                          no-fallthrough
+    9:7544    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:7723    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:7808    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8073    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8175    error  Expected a 'break' statement before 'default'                                       no-fallthrough
+    9:8185    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8271    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8679    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8754    error  Expected a 'break' statement before 'default'                                       no-fallthrough
+    9:8764    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8832    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:8951    error  Expected a 'break' statement before 'default'                                       no-fallthrough
+    9:9132    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:9163    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:9287    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:9565    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:9598    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:9700    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10046   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10079   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10152   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10374   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10410   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10486   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10593   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10625   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:10697   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+    9:18758   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    9:19831   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    9:22364   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+    9:36069   error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                                     no-undef
+    9:36168   error  Empty block statement                                                               no-empty
+    9:37314   error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                                     no-undef
+    9:37371   error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                                     no-undef
+    9:37934   error  Empty block statement                                                               no-empty
+    9:47820   error  Empty block statement                                                               no-empty
+    9:48037   error  Empty block statement                                                               no-empty
+   11:4337    error  'l' is assigned a value but never used                                              no-unused-vars
+   11:4896    error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+   11:7029    error  'r' is defined but never used                                                       no-unused-vars
+   11:16472   error  Empty block statement                                                               no-empty
+   11:25590   error  'global' is not defined                                                             no-undef
+   25:569     error  'global' is not defined                                                             no-undef
+   25:754     error  'chrome' is not defined                                                             no-undef
+   25:794     error  'browser' is not defined                                                            no-undef
+   25:3900    error  Empty block statement                                                               no-empty
+   25:5650    error  Empty block statement                                                               no-empty
+   25:6372    error  Empty block statement                                                               no-empty
+   25:6551    error  Empty block statement                                                               no-empty
+   25:7776    error  Empty block statement                                                               no-empty
+   25:8160    error  Empty block statement                                                               no-empty
+   25:23664   error  'global' is not defined                                                             no-undef
+   25:23854   error  'G' is defined but never used                                                       no-unused-vars
+   25:34301   error  'f.prototype.add' is assigned to itself                                             no-self-assign
+   25:34475   error  'f.prototype.toString' is assigned to itself                                        no-self-assign
+   25:36448   error  'global' is not defined                                                             no-undef
+   25:37441   error  'T' is defined but never used                                                       no-unused-vars
+   25:37443   error  'S' is defined but never used                                                       no-unused-vars
+   25:37495   error  'd' is defined but never used                                                       no-unused-vars
+   25:37497   error  'T' is defined but never used                                                       no-unused-vars
+   25:37499   error  'S' is defined but never used                                                       no-unused-vars
+   25:37509   error  'x' is a function                                                                   no-func-assign
+   25:37550   error  'T' is defined but never used                                                       no-unused-vars
+   25:37815   error  'nt' is defined but never used                                                      no-unused-vars
+   25:37982   error  'AsyncContext' is not defined                                                       no-undef
+   25:38022   error  'AsyncContext' is not defined                                                       no-undef
+   25:38174   error  'T' is defined but never used                                                       no-unused-vars
+   25:39144   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+   25:39261   error  'this.u' is assigned to itself                                                      no-self-assign
+   25:39275   error  'this.C' is assigned to itself                                                      no-self-assign
+   25:39734   error  Expected to return a value in method 'get'                                          getter-return
+   25:39846   error  Empty block statement                                                               no-empty
+   25:41742   error  'T' is defined but never used                                                       no-unused-vars
+   25:43954   error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+   25:45924   error  'T' is defined but never used                                                       no-unused-vars
+   25:46160   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+   25:46766   error  'd' is defined but never used                                                       no-unused-vars
+   29:2636    error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+   29:3700    error  Empty block statement                                                               no-empty
+   30:2227    error  Empty block statement                                                               no-empty
+   30:4602    error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+   30:5943    error  Unnecessary escape character: \/                                                    no-useless-escape
+   30:5945    error  Unnecessary escape character: \?                                                    no-useless-escape
+   30:5958    error  Unnecessary escape character: \?                                                    no-useless-escape
+   30:5971    error  Unnecessary escape character: \?                                                    no-useless-escape
+   30:5983    error  Unnecessary escape character: \?                                                    no-useless-escape
+   30:8376    error  Empty block statement                                                               no-empty
+   32:2321    error  Expected a conditional expression and instead saw an assignment                     no-cond-assign
+   32:2754    error  Empty block statement                                                               no-empty
+   33:1854    error  Empty block statement                                                               no-empty
+   33:4275    error  Unreachable code                                                                    no-unreachable
+   33:8872    error  'd' is defined but never used                                                       no-unused-vars
+   33:9067    error  'Sn.prototype.close' is assigned to itself                                          no-self-assign
+   33:11154   error  't' is defined but never used                                                       no-unused-vars
+   33:26542   error  's' is defined but never used                                                       no-unused-vars
+   33:33377   error  't' is defined but never used                                                       no-unused-vars
+   33:33379   error  'n' is defined but never used                                                       no-unused-vars
+   33:33381   error  's' is defined but never used                                                       no-unused-vars
+   33:33383   error  'l' is defined but never used                                                       no-unused-vars
+   33:33385   error  'h' is defined but never used                                                       no-unused-vars
+   33:33411   error  's' is defined but never used                                                       no-unused-vars
+   33:33440   error  't' is defined but never used                                                       no-unused-vars
+   33:33442   error  'n' is defined but never used                                                       no-unused-vars
+   33:33493   error  't' is defined but never used                                                       no-unused-vars
+   33:33522   error  't' is defined but never used                                                       no-unused-vars
+   33:33932   error  's' is defined but never used                                                       no-unused-vars
+   33:39909   error  Do not access Object.prototype method 'hasOwnProperty' from target object           no-prototype-builtins
+   33:43020   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   36:11144   error  'Buffer' is not defined                                                             no-undef
+   36:15804   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   36:15893   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   36:15992   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   36:16085   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   36:19324   error  't' is defined but never used                                                       no-unused-vars
+   36:19326   error  'n' is defined but never used                                                       no-unused-vars
+   36:19366   error  't' is defined but never used                                                       no-unused-vars
+   36:19368   error  'n' is defined but never used                                                       no-unused-vars
+   36:19413   error  't' is defined but never used                                                       no-unused-vars
+   36:19456   error  't' is defined but never used                                                       no-unused-vars
+   36:19458   error  'n' is defined but never used                                                       no-unused-vars
+   36:19508   error  't' is defined but never used                                                       no-unused-vars
+   36:19510   error  'n' is defined but never used                                                       no-unused-vars
+   36:19550   error  't' is defined but never used                                                       no-unused-vars
+   36:19552   error  'n' is defined but never used                                                       no-unused-vars
+   36:19592   error  't' is defined but never used                                                       no-unused-vars
+   36:19594   error  'n' is defined but never used                                                       no-unused-vars
+   36:19650   error  't' is defined but never used                                                       no-unused-vars
+   36:19690   error  't' is defined but never used                                                       no-unused-vars
+   36:19692   error  'n' is defined but never used                                                       no-unused-vars
+   36:19755   error  't' is defined but never used                                                       no-unused-vars
+   36:19757   error  'n' is defined but never used                                                       no-unused-vars
+   36:19810   error  't' is defined but never used                                                       no-unused-vars
+   36:19812   error  'n' is defined but never used                                                       no-unused-vars
+   36:19814   error  's' is defined but never used                                                       no-unused-vars
+   36:19856   error  't' is defined but never used                                                       no-unused-vars
+   36:19858   error  'n' is defined but never used                                                       no-unused-vars
+   41:6855    error  't' is defined but never used                                                       no-unused-vars
+   41:8065    error  't' is defined but never used                                                       no-unused-vars
+   41:8761    error  't' is defined but never used                                                       no-unused-vars
+   41:9895    error  't' is defined but never used                                                       no-unused-vars
+   41:10030   error  't' is defined but never used                                                       no-unused-vars
+   41:10084   error  'n' is defined but never used                                                       no-unused-vars
+   41:11384   error  't' is defined but never used                                                       no-unused-vars
+   41:11386   error  'n' is defined but never used                                                       no-unused-vars
+   41:11388   error  's' is defined but never used                                                       no-unused-vars
+   41:11390   error  'l' is defined but never used                                                       no-unused-vars
+   41:11465   error  't' is defined but never used                                                       no-unused-vars
+   41:11496   error  't' is defined but never used                                                       no-unused-vars
+   41:12131   error  't' is defined but never used                                                       no-unused-vars
+   41:12209   error  't' is defined but never used                                                       no-unused-vars
+   41:12256   error  't' is defined but never used                                                       no-unused-vars
+   41:13090   error  't' is defined but never used                                                       no-unused-vars
+   41:14144   error  't' is defined but never used                                                       no-unused-vars
+   41:16007   error  't' is defined but never used                                                       no-unused-vars
+   41:16342   error  't' is defined but never used                                                       no-unused-vars
+   41:16588   error  's' is defined but never used                                                       no-unused-vars
+   41:24379   error  'C' is defined but never used                                                       no-unused-vars
+   41:27176   error  't' is defined but never used                                                       no-unused-vars
+   41:27200   error  't' is defined but never used                                                       no-unused-vars
+   41:27202   error  'n' is defined but never used                                                       no-unused-vars
+   41:27204   error  's' is defined but never used                                                       no-unused-vars
+   41:27307   error  's' is defined but never used                                                       no-unused-vars
+   41:27644   error  't' is defined but never used                                                       no-unused-vars
+   41:27646   error  'n' is defined but never used                                                       no-unused-vars
+   41:27648   error  's' is defined but never used                                                       no-unused-vars
+   41:27667   error  't' is defined but never used                                                       no-unused-vars
+   41:27703   error  't' is defined but never used                                                       no-unused-vars
+   41:27726   error  't' is defined but never used                                                       no-unused-vars
+   41:27743   error  't' is defined but never used                                                       no-unused-vars
+   41:29456   error  'f' is defined but never used                                                       no-unused-vars
+   41:30690   error  'h' is defined but never used                                                       no-unused-vars
+   41:30855   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   41:31082   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   42:513     error  'f' is defined but never used                                                       no-unused-vars
+   42:1762    error  'n' is defined but never used                                                       no-unused-vars
+   42:5487    error  'f' is defined but never used                                                       no-unused-vars
+   42:6870    error  's' is defined but never used                                                       no-unused-vars
+   45:6458    error  'n' is defined but never used                                                       no-unused-vars
+   45:16259   error  't' is defined but never used                                                       no-unused-vars
+   45:16261   error  'n' is defined but never used                                                       no-unused-vars
+   45:16279   error  't' is defined but never used                                                       no-unused-vars
+   45:16281   error  'n' is defined but never used                                                       no-unused-vars
+   45:16370   error  't' is defined but never used                                                       no-unused-vars
+   45:16413   error  't' is defined but never used                                                       no-unused-vars
+   45:16838   error  't' is defined but never used                                                       no-unused-vars
+   45:17514   error  't' is defined but never used                                                       no-unused-vars
+   46:315     error  't' is defined but never used                                                       no-unused-vars
+   46:5038    error  't' is defined but never used                                                       no-unused-vars
+   46:12608   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   46:19244   error  'n' is defined but never used                                                       no-unused-vars
+   46:36443   error  Empty block statement                                                               no-empty
+   46:47018   error  't' is defined but never used                                                       no-unused-vars
+   46:47020   error  'n' is defined but never used                                                       no-unused-vars
+   46:47040   error  't' is defined but never used                                                       no-unused-vars
+   46:47042   error  'n' is defined but never used                                                       no-unused-vars
+   46:48702   error  Empty block statement                                                               no-empty
+   46:48914   error  Empty block statement                                                               no-empty
+   46:49426   error  Unnecessary escape character: \.                                                    no-useless-escape
+   46:49442   error  Unnecessary escape character: \.                                                    no-useless-escape
+   46:50858   error  Empty block statement                                                               no-empty
+   46:54996   error  Empty block statement                                                               no-empty
+   46:63609   error  't' is defined but never used                                                       no-unused-vars
+   46:63611   error  'n' is defined but never used                                                       no-unused-vars
+   46:63653   error  't' is defined but never used                                                       no-unused-vars
+   46:63655   error  'n' is defined but never used                                                       no-unused-vars
+   46:63698   error  't' is defined but never used                                                       no-unused-vars
+   46:63700   error  'n' is defined but never used                                                       no-unused-vars
+   46:63742   error  't' is defined but never used                                                       no-unused-vars
+   46:63744   error  'n' is defined but never used                                                       no-unused-vars
+   46:64147   error  Promise executor functions should not be async                                      no-async-promise-executor
+   46:65942   error  'l' is defined but never used                                                       no-unused-vars
+   46:66766   error  'n' is defined but never used                                                       no-unused-vars
+   46:68634   error  't' is defined but never used                                                       no-unused-vars
+   46:68681   error  't' is defined but never used                                                       no-unused-vars
+   46:68683   error  'n' is defined but never used                                                       no-unused-vars
+   46:68744   error  't' is defined but never used                                                       no-unused-vars
+   46:69811   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   46:70123   error  Unexpected lexical declaration in case block                                        no-case-declarations
+   46:81472   error  't' is defined but never used                                                       no-unused-vars
+   46:81474   error  'n' is defined but never used                                                       no-unused-vars
+   46:81494   error  't' is defined but never used                                                       no-unused-vars
+   46:81496   error  'n' is defined but never used                                                       no-unused-vars
+   46:86198   error  't' is defined but never used                                                       no-unused-vars
+   46:86200   error  'n' is defined but never used                                                       no-unused-vars
+   46:86712   error  Empty block statement                                                               no-empty
+   46:86831   error  Empty block statement                                                               no-empty
+   46:89557   error  Promise executor functions should not be async                                      no-async-promise-executor
+   46:95207   error  Empty block statement                                                               no-empty
+   46:95944   error  'gapi' is not defined                                                               no-undef
+   46:95986   error  'gapi' is not defined                                                               no-undef
+   46:96120   error  'gapi' is not defined                                                               no-undef
+   46:96224   error  'gapi' is not defined                                                               no-undef
+   46:97275   error  Promise executor functions should not be async                                      no-async-promise-executor
+   46:97709   error  Empty block statement                                                               no-empty
+   46:98206   error  Empty block statement                                                               no-empty
+   46:98539   error  'h' is defined but never used                                                       no-unused-vars
+   46:100330  error  'gapi' is not defined                                                               no-undef
+   46:100583  error  'gapi' is not defined                                                               no-undef
+   46:102556  error  'n' is defined but never used                                                       no-unused-vars
+   46:102558  error  's' is defined but never used                                                       no-unused-vars
+   46:119385  error  'h' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u   no-unused-vars
+   46:130511  error  'L' is not defined                                                                  no-undef
+   46:130515  error  'L' is not defined                                                                  no-undef
+   46:130573  error  'L' is not defined                                                                  no-undef
+   46:143564  error  Expected to return a value in method 'get'                                          getter-return
+   46:143705  error  Empty block statement                                                               no-empty
+   46:257854  error  Empty block statement                                                               no-empty
+   46:278556  error  'n' is defined but never used                                                       no-unused-vars
+   46:286266  error  't' is defined but never used                                                       no-unused-vars
+   89:5265    error  'it' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  204:12222   error  't' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u   no-unused-vars
+
+/Users/apple/trustdrive/server/index.js
+   1:1   error  'require' is not defined  no-undef
+   2:17  error  'require' is not defined  no-undef
+   3:18  error  'require' is not defined  no-undef
+   4:14  error  'require' is not defined  no-undef
+   7:14  error  'process' is not defined  no-undef
+  14:20  error  'require' is not defined  no-undef
+  15:23  error  'require' is not defined  no-undef
+  27:14  error  'process' is not defined  no-undef
+  31:32  error  'process' is not defined  no-undef
+  35:9   error  'process' is not defined  no-undef
+
+/Users/apple/trustdrive/server/models/Booking.js
+   1:18  error  'require' is not defined  no-undef
+  20:1   error  'module' is not defined   no-undef
+
+/Users/apple/trustdrive/server/models/User.js
+   1:18  error  'require' is not defined  no-undef
+  16:1   error  'module' is not defined   no-undef
+
+/Users/apple/trustdrive/server/routes/auth.js
+   1:17  error  'require' is not defined  no-undef
+   3:14  error  'require' is not defined  no-undef
+  57:1   error  'module' is not defined   no-undef
+
+/Users/apple/trustdrive/server/routes/bookings.js
+   1:17  error  'require' is not defined  no-undef
+   3:17  error  'require' is not defined  no-undef
+  53:1   error  'module' is not defined   no-undef
+
+/Users/apple/trustdrive/src/components/BookingCard.jsx
+   54:13  error  'isPickup' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      no-unused-vars
+  217:56  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  215 |                                 </div>
+  216 |                                 <div style={{ color: 'white', fontWeight: '700', fontSize: '1.1rem' }}>
+> 217 |                                     {navEta ? new Date(Date.now() + navEta * 60000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '--:--'}
+      |                                                        ^^^^^^^^^^ Cannot call impure function
+  218 |                                 </div>
+  219 |                             </div>
+  220 |                             <div style={{ textAlign: 'right' }}>  react-hooks/purity
+
+/Users/apple/trustdrive/src/components/ChatInterface.jsx
+  23:13  error  Error: Cannot access variable before it is declared
+
+`scrollToBottom` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  21 |             const msgs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  22 |             setMessages(msgs);
+> 23 |             scrollToBottom();
+     |             ^^^^^^^^^^^^^^ `scrollToBottom` accessed before it is declared
+  24 |         });
+  25 |
+  26 |         return () => unsubscribe();
+
+  27 |     }, [bookingId]);
+  28 |
+> 29 |     const scrollToBottom = () => {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 30 |         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 31 |     };
+     | ^^^^^^^ `scrollToBottom` is declared here
+  32 |
+  33 |     const handleSendMessage = async (e) => {
+  34 |         e.preventDefault();  react-hooks/immutability
+
+/Users/apple/trustdrive/src/components/Layout.jsx
+  17:11  error  'isHome' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/apple/trustdrive/src/components/LocationMapModal.jsx
+  34:39  error    React Hook "React.useState" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?   react-hooks/rules-of-hooks
+  35:41  error    React Hook "React.useState" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?   react-hooks/rules-of-hooks
+  46:49  error    React Hook "React.useState" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?   react-hooks/rules-of-hooks
+  48:5   error    React Hook "React.useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+  73:8   warning  React Hook React.useEffect has missing dependencies: 'dropoffCoords' and 'pickupCoords'. Either include them or remove the dependency array                                                        react-hooks/exhaustive-deps
+
+/Users/apple/trustdrive/src/components/NigeriaMap.jsx
+  2:56  error  'useMap' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/apple/trustdrive/src/components/PaymentConfirmModal.jsx
+  7:12  error  'loading' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/apple/trustdrive/src/components/SecureCodeModal.jsx
+  11:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+   9 |     useEffect(() => {
+  10 |         if (isOpen) {
+> 11 |             setIsGenerating(true);
+     |             ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  12 |             let interval = setInterval(() => {
+  13 |                 setDisplayCode(Math.floor(1000 + Math.random() * 9000).toString());
+  14 |             }, 50); // Fast rotation  react-hooks/set-state-in-effect
+
+/Users/apple/trustdrive/src/components/SponsoredCarousel.jsx
+  57:35  error  'index' is defined but never used  no-unused-vars
+
+/Users/apple/trustdrive/src/components/UserTripTracker.jsx
+   43:12  error    'showMatchPopup' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 no-unused-vars
+   44:12  error    'isFlipped' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      no-unused-vars
+   80:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  78 |         // If no driver location, initialize slightly offset
+  79 |         if (!driverLocation && pickupCoords) {
+> 80 |             setDriverLocation([pickupCoords[0] + 0.005, pickupCoords[1] + 0.005]);
+     |             ^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  81 |         }
+  82 |
+  83 |         const interval = setInterval(() => {                     react-hooks/set-state-in-effect
+  115:8   warning  React Hook useEffect has missing dependencies: 'booking' and 'driverLocation'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              react-hooks/exhaustive-deps
+  124:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  122 |             }, 3000);
+  123 |         } else {
+> 124 |             setIsFlipped(false);
+      |             ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  125 |         }
+  126 |         return () => clearInterval(interval);
+  127 |     }, [booking.status]);                                                                                                               react-hooks/set-state-in-effect
+  156:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  154 |
+  155 |         if (booking.status === 'accepted') {
+> 156 |             setShowMatchPopup(true);
+      |             ^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  157 |             sendDriverGreeting();
+  158 |         }
+  159 |     }, [booking.status, booking.id, booking.driverName, user.name, hasGreeted]);                                                     react-hooks/set-state-in-effect
+  174:9   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  172 |         const dCoords = booking.dropoffCoords ? [booking.dropoffCoords.lat, booking.dropoffCoords.lng] : getSimulatedCoords(booking.dropoff, 2.5);
+  173 |
+> 174 |         setPickupCoords(pCoords);
+      |         ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  175 |         setDropoffCoords(dCoords);
+  176 |
+  177 |         if (booking.status === 'in_progress') {  react-hooks/set-state-in-effect
+
+/Users/apple/trustdrive/src/components/admin/AdminLayout.jsx
+  8:21  error  'user' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/apple/trustdrive/src/components/admin/FleetMap.jsx
+  24:7  error  'route' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/apple/trustdrive/src/components/admin/StatsCard.jsx
+  4:42  error  'Icon' is defined but never used  no-unused-vars
+
+/Users/apple/trustdrive/src/components/common/AutocompleteInput.jsx
+  48:19  error  'localMatches' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/apple/trustdrive/src/components/common/FloatingActions.jsx
+  4:28  error  'userType' is assigned a value but never used  no-unused-vars
+
+/Users/apple/trustdrive/src/context/AuthContext.jsx
+  14:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/apple/trustdrive/src/context/BookingContext.jsx
+  81:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/apple/trustdrive/src/context/ToastContext.jsx
+  6:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/Users/apple/trustdrive/src/pages/AdminDashboard.jsx
+   59:11  error  'totalRevenue' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      no-unused-vars
+  319:58  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  317 |                     }}>
+  318 |                         {[...Array(12)].map((_, i) => {
+> 319 |                             const earnings = (Math.floor(Math.random() * 250000) + 50000).toLocaleString();
+      |                                                          ^^^^^^^^^^^^^ Cannot call impure function
+  320 |                             const isOnTrip = Math.random() > 0.4;
+  321 |
+  322 |                             return (                                                   react-hooks/purity
+  320:46  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  318 |                         {[...Array(12)].map((_, i) => {
+  319 |                             const earnings = (Math.floor(Math.random() * 250000) + 50000).toLocaleString();
+> 320 |                             const isOnTrip = Math.random() > 0.4;
+      |                                              ^^^^^^^^^^^^^ Cannot call impure function
+  321 |
+  322 |                             return (
+  323 |                                 <div key={i} className="animate-fade-in-up" style={{  react-hooks/purity
+
+/Users/apple/trustdrive/src/pages/Home.jsx
+  298:30  error  'Icon' is defined but never used  no-unused-vars
+
+/Users/apple/trustdrive/src/pages/Profile.jsx
+  16:32  error  'Icon' is defined but never used  no-unused-vars
+
+✖ 728 problems (726 errors, 2 warnings)
+

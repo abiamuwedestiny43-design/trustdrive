@@ -31,12 +31,15 @@ const Layout = () => {
                     alignItems: 'center',
                     justifyContent: 'space-between'
                 }}>
-                    <Link to="/" style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <div style={{ width: '32px', height: '32px', background: 'var(--accent)', borderRadius: '8px' }}></div>
+                    <Link to="/" style={{ fontSize: '1.5rem', fontWeight: '800', color: '#1ECB73', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                        <div style={{ padding: '0.4rem', background: '#1ECB73', borderRadius: '8px', color: 'white' }}>
+                            <div style={{ width: '24px', height: '24px', background: 'white', borderRadius: '4px' }}></div>
+                        </div>
                         TrustDrive
                     </Link>
 
                     <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+                        <Link to="/community" style={{ fontWeight: '600', color: '#1ECB73' }}>Community</Link>
                         {!user ? (
                             <>
                                 <Link to="/login" style={{ fontWeight: '500', color: 'var(--text-secondary)' }}>Log In</Link>

@@ -10,13 +10,14 @@ import { DollarSign, Users, Car, Activity, MoreVertical } from 'lucide-react';
 import Button from '../components/common/Button';
 
 import { db } from '../firebase';
-import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
+import { collection, query, orderBy, limit, onSnapshot, where, doc, updateDoc } from 'firebase/firestore';
 
 const AdminDashboard = () => {
     const { user } = useAuth();
     const { bookings } = useBooking(); // Still used for global stats (optional, could replace later)
     const navigate = useNavigate();
     const [recentBookings, setRecentBookings] = React.useState([]);
+    const [pendingDrivers, setPendingDrivers] = React.useState([]);
 
     useEffect(() => {
         if (!user || user.role !== 'admin') {
@@ -37,8 +38,44 @@ const AdminDashboard = () => {
             setRecentBookings(data);
         });
 
-        return () => unsubscribe();
+        // Query for pending driver approvals
+        const driversQuery = query(
+            collection(db, 'users'),
+            where('role', '==', 'driver'),
+            where('isApproved', '==', false)
+        );
+
+        const unsubscribeDrivers = onSnapshot(driversQuery, (snapshot) => {
+            const drivers = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            setPendingDrivers(drivers);
+        });
+
+        return () => {
+            unsubscribe();
+            unsubscribeDrivers();
+        };
     }, []);
+
+    const handleApproveDriver = async (driverId) => {
+        try {
+            await updateDoc(doc(db, 'users', driverId), {
+                isApproved: true
+            });
+        } catch (error) {
+            console.error("Error approving driver:", error);
+        }
+    };
+
+    const handleRejectDriver = async (driverId) => {
+        try {
+            await updateDoc(doc(db, 'users', driverId), {
+                isApproved: false,
+                rejected: true
+            });
+        } catch (error) {
+            console.error("Error rejecting driver:", error);
+        }
+    };
 
     // ... (Stats Logic remains same for now) ...
     const totalRevenue = bookings
@@ -125,6 +162,43 @@ const AdminDashboard = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Pending Drivers Approvals */}
+            {pendingDrivers.length > 0 && (
+                <>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginTop: '1rem', marginBottom: '1rem' }}>
+                        <h2 style={{ fontSize: '1.25rem', fontWeight: '700', margin: 0 }}>Driver Verification Queue</h2>
+                        <div style={{ fontSize: '0.85rem', color: '#ef4444', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <span className="animate-pulse" style={{ width: '8px', height: '8px', background: '#ef4444', borderRadius: '50%' }}></span>
+                            Action Required
+                        </div>
+                    </div>
+                    <div className="hide-scrollbar" style={{ display: 'flex', gap: '1rem', overflowX: 'auto', paddingBottom: '1.5rem', scrollSnapType: 'x mandatory', marginBottom: '2rem' }}>
+                        {pendingDrivers.map((driver) => (
+                            <div key={driver.id} style={{
+                                minWidth: '320px', padding: '1.5rem', borderRadius: 'var(--radius-lg)', background: 'rgba(239, 68, 68, 0.05)', border: '1px solid rgba(239, 68, 68, 0.2)', backdropFilter: 'blur(10px)', scrollSnapAlign: 'start', display: 'flex', flexDirection: 'column', gap: '1rem'
+                            }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <div>
+                                        <h3 style={{ margin: 0, fontSize: '1.1rem', color: 'white' }}>{driver.name}</h3>
+                                        <div style={{ color: '#94a3b8', fontSize: '0.8rem' }}>{driver.email}</div>
+                                    </div>
+                                    <span style={{ fontSize: '0.7rem', fontWeight: '700', background: 'rgba(239,68,68,0.2)', color: '#ef4444', padding: '0.25rem 0.5rem', borderRadius: '4px' }}>PENDING</span>
+                                </div>
+                                <div style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>
+                                    <strong>Phone:</strong> {driver.phone || 'N/A'}<br/>
+                                    <strong>Vehicle:</strong> {driver.vehicleModel || 'N/A'}<br/>
+                                    <strong>Plate:</strong> {driver.licensePlate || 'N/A'}
+                                </div>
+                                <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.5rem' }}>
+                                    <Button onClick={() => handleApproveDriver(driver.id)} style={{ flex: 1, padding: '0.5rem', background: '#10b981', color: 'white', border: 'none', borderRadius: '6px', fontWeight: '600', cursor: 'pointer' }}>Approve</Button>
+                                    <Button onClick={() => handleRejectDriver(driver.id)} style={{ flex: 1, padding: '0.5rem', background: 'transparent', color: '#ef4444', border: '1px solid #ef4444', borderRadius: '6px', fontWeight: '600', cursor: 'pointer' }}>Reject</Button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </>
+            )}
 
             {/* Live Booking Feed - REAL DATA */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginTop: '1rem', marginBottom: '1rem' }}>

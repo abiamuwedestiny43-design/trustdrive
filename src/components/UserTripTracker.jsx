@@ -6,6 +6,7 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import ChatInterface from './ChatInterface';
 import { useAuth } from '../context/AuthContext';
+import { socketService } from '../utils/socket';
 
 let DefaultIcon = L.icon({
     iconUrl: icon,
@@ -66,10 +67,32 @@ const UserTripTracker = ({ booking, onReset, onCancel }) => {
     }, [booking]);
 
     useEffect(() => {
+        // Connect user to socket when tracking starts
+        if (user) {
+            socketService.connect(user.uid, user.role);
+            
+            // Listen for precise driver location updates
+            socketService.onDriverLocation((data) => {
+                if (data.bookingId === booking.id && data.location) {
+                    setDriverLocation([data.location.lat, data.location.lng]);
+                    // You could also calculate ETA from real location to target coords here
+                }
+            });
+        }
+
+        return () => {
+            socketService.offDriverLocation();
+            // Don't completely disconnect if other components need it, or we could handle it via context
+        };
+    }, [user, booking.id]);
+
+    useEffect(() => {
         if (!driverLocation || !pickupCoords || !dropoffCoords) return;
 
         const target = booking.status === 'in_progress' ? dropoffCoords : pickupCoords;
 
+        // Simulate falling back mapping if no real socket updates arrive
+        // In a real app we might disable this if real socket data is active
         const interval = setInterval(() => {
             setDriverLocation(prev => {
                 const latDiff = target[0] - prev[0];
@@ -83,7 +106,11 @@ const UserTripTracker = ({ booking, onReset, onCancel }) => {
                 const distRemaining = Math.sqrt(latDiff * latDiff + lngDiff * lngDiff) / 0.01;
                 setEta(Math.ceil(distRemaining * 3));
 
-                return [prev[0] + latDiff * 0.02, prev[1] + lngDiff * 0.02];
+                // Only move slightly to simulate if socket is dead, 
+                // else let socket updates override this
+                return prev; 
+                // Removed the forced manual drift so the socket takes precedence. 
+                // To restore simulation for demo, you've return [prev[0] + latDiff * 0.02, prev[1] + lngDiff * 0.02];
             });
         }, 1000);
 

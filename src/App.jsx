@@ -12,6 +12,7 @@ import Fleet from './pages/admin/Fleet';
 import Settings from './pages/admin/Settings';
 import Setup from './pages/Setup';
 import Profile from './pages/Profile';
+import Community from './pages/Community';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="settings" element={<Settings />} />
         </Route>
         <Route path="setup" element={<Setup />} />
+        <Route path="community" element={<Community />} />
       </Route>
     </Routes>
   );

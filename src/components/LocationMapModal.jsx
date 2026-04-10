@@ -14,8 +14,7 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 const LocationMapModal = ({ isOpen, onClose, pickup, dropoff }) => {
-    if (!isOpen) return null;
-
+    // Hooks must be called at the top level
     // Simulate Coordinates based on text (Deterministic random for demo)
     const getSimulatedCoords = (text) => {
         // Base: Lagos
@@ -71,6 +70,8 @@ const LocationMapModal = ({ isOpen, onClose, pickup, dropoff }) => {
 
         return () => clearInterval(interval);
     }, [isOpen]);
+
+    if (!isOpen) return null;
 
     return (
         <div style={{

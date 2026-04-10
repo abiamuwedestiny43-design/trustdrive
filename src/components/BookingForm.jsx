@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { useBooking } from '../context/BookingContext';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { MapPin, Navigation, Car, CreditCard } from 'lucide-react';
+import { MapPin, Navigation, Car, CreditCard, Plane, Train, Bike, Bus, ParkingSquare, Flag } from 'lucide-react';
 import Card from './common/Card';
 import Input from './common/Input';
 import Button from './common/Button';
 import PaymentConfirmModal from './PaymentConfirmModal';
 import UserTripTracker from './UserTripTracker';
+import { sendSMS } from '../utils/twilio';
+import AutocompleteInput from './common/AutocompleteInput';
+import { allNigeriaCities } from '../utils/locations';
 
 const BookingForm = () => {
     const { createBooking, updateBookingStatus, activeBooking, resetBooking } = useBooking();
@@ -16,7 +19,8 @@ const BookingForm = () => {
 
     const [pickup, setPickup] = useState('');
     const [dropoff, setDropoff] = useState('');
-    const [carType, setCarType] = useState(null); // Step 2: Select Ride
+    const [serviceType, setServiceType] = useState('ride'); // 'ride', 'flight', 'metro', 'bike', 'parking'
+    const [carType, setCarType] = useState(null); // Step 2: Select Option
     const [paymentMethod, setPaymentMethod] = useState(null); // Step 3: Select Payment
     const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
@@ -35,7 +39,7 @@ const BookingForm = () => {
             setCarType(null);
             setPaymentMethod(null);
         }
-    }, [pickup, dropoff]);
+    }, [pickup, dropoff, serviceType]);
 
     const handleSearch = async (e) => {
         e.preventDefault();
@@ -46,32 +50,66 @@ const BookingForm = () => {
         await new Promise(resolve => setTimeout(resolve, 1500));
 
         // Calculate random distance
-        const dist = Math.floor(Math.random() * (25 - 5 + 1)) + 5;
+        const dist = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
         setDistance(dist);
         setHasSearched(true);
         setIsSearching(false);
     };
 
     const getPrice = () => {
-        if (!distance || !carType) return 0; // Price depends on car type now
-        const baseFare = 2500;
-        const ratePerKm = 3600;
-        let carMultiplier = 1;
+        if (!distance || !carType) return 0;
+        let baseFare = 2500;
+        let ratePerKm = 3600;
+        let mult = 1;
 
-        if (carType === 'suv') carMultiplier = 1.5;
-        if (carType === 'van') carMultiplier = 2;
+        if (serviceType === 'flight') {
+            baseFare = 75000;
+            ratePerKm = 12000;
+        } else if (serviceType === 'metro') {
+            baseFare = 500;
+            ratePerKm = 150;
+        } else if (serviceType === 'bike') {
+            baseFare = 800;
+            ratePerKm = 400;
+        } else if (serviceType === 'parking') {
+            baseFare = 1500;
+            ratePerKm = 0; // Flat or duration based
+        }
 
-        return (baseFare + (distance * ratePerKm)) * carMultiplier; // Simplified for display
+        // Mults for vehicle types
+        if (['suv', 'business', 'premium_metro', 'bus'].includes(carType)) mult = 1.5;
+        if (['van', 'first', 'executive_metro'].includes(carType)) mult = 2.5;
+        if (['eco_parking'].includes(carType)) mult = 0.8;
+        if (['secure_parking'].includes(carType)) mult = 1.2;
+
+        return (baseFare + (distance * ratePerKm)) * mult;
     };
 
-    // Helper to get estimated price range or specific price
     const getEstimate = (type) => {
-        if (!distance) return "Checking...";
-        const baseFare = 2500;
-        const ratePerKm = 3600;
+        if (!distance) return "Scanning...";
+        let baseFare = 2500;
+        let ratePerKm = 3600;
         let mult = 1;
-        if (type === 'suv') mult = 1.5;
-        if (type === 'van') mult = 2;
+
+        if (serviceType === 'flight') {
+            baseFare = 75000;
+            ratePerKm = 12000;
+        } else if (serviceType === 'metro') {
+            baseFare = 500;
+            ratePerKm = 150;
+        } else if (serviceType === 'bike') {
+            baseFare = 800;
+            ratePerKm = 400;
+        } else if (serviceType === 'parking') {
+            baseFare = 1500;
+            ratePerKm = 0;
+        }
+
+        if ([ 'suv', 'business', 'premium_metro', 'bus'].includes(type)) mult = 1.5;
+        if (['van', 'first', 'executive_metro'].includes(type)) mult = 2.5;
+        if (['eco_parking'].includes(type)) mult = 0.8;
+        if (['secure_parking'].includes(type)) mult = 1.2;
+        
         return `₦${((baseFare + (distance * ratePerKm)) * mult).toLocaleString()}`;
     };
 
@@ -98,6 +136,15 @@ const BookingForm = () => {
             };
 
             const createdBooking = await createBooking(bookingData);
+
+            // Send Twilio SMS Notification with OTP
+            try {
+                const msg = `Ahoy 👋 Your TrustDrive from ${pickup} is confirmed! Your ride OTP is: ${otp}. Fare: ₦${getPrice().toLocaleString()}`;
+                await sendSMS('+18777804236', msg);
+                console.log("SMS Notification dispatched successfully.");
+            } catch (err) {
+                console.error("Could not send SMS:", err);
+            }
 
             // Context automatically sets activeBooking
 
@@ -167,113 +214,110 @@ const BookingForm = () => {
                         pointerEvents: 'none'
                     }}></div>
 
+                    {/* TrustDrive Logo Header */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+                        <div style={{ padding: '0.4rem', background: '#1ECB73', borderRadius: '8px', color: 'white' }}>
+                             <div style={{ width: '20px', height: '20px', background: 'white', borderRadius: '4px' }}></div>
+                        </div>
+                        <span style={{ fontWeight: '900', fontSize: '1.2rem', color: '#0f172a', letterSpacing: '0.5px' }}>TRUSTDRIVE</span>
+                    </div>
+
+                    {/* Service Type Tabs - Scrollable */}
+                    <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1.5rem', borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '0.75rem', overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+                        <ServiceTab active={serviceType === 'ride'} onClick={() => setServiceType('ride')} icon={Car} label="Ride" />
+                        <ServiceTab active={serviceType === 'bike'} onClick={() => setServiceType('bike')} icon={Bike} label="Bike" />
+                        <ServiceTab active={serviceType === 'flight'} onClick={() => setServiceType('flight')} icon={Plane} label="Flight" />
+                        <ServiceTab active={serviceType === 'metro'} onClick={() => setServiceType('metro')} icon={Train} label="Metro" />
+                        <ServiceTab active={serviceType === 'parking'} onClick={() => setServiceType('parking')} icon={ParkingSquare} label="Parking" />
+                    </div>
+
                     <h2 style={{
-                        fontSize: '1.75rem',
+                        fontSize: '1.4rem',
                         fontWeight: '800',
-                        marginBottom: '1.5rem',
-                        color: '#000000', // Black text
+                        marginBottom: '1rem',
+                        color: '#000000',
                         display: 'flex',
                         alignItems: 'center',
                         gap: '0.5rem',
                     }}>
-                        Where to? <span style={{ width: '8px', height: '8px', background: '#34d399', borderRadius: '50%', boxShadow: '0 0 10px #34d399' }} className="animate-pulse"></span>
+                        {serviceType === 'ride' ? 'Book a Car/Bus' : serviceType === 'bike' ? 'Quick Bike' : serviceType === 'flight' ? 'Fly National' : serviceType === 'metro' ? 'Take the Metro' : 'Vehicle Parking'} 
+                        <span style={{ width: '8px', height: '8px', background: '#34d399', borderRadius: '50%', boxShadow: '0 0 10px #34d399' }} className="animate-pulse"></span>
                     </h2>
 
                     <form onSubmit={hasSearched ? handleSubmit : handleSearch} style={{ position: 'relative', zIndex: 1 }}>
-                        {/* Pickup Input - AI Verified Style */}
-                        <div style={{ position: 'relative' }}>
-                            <div style={{
-                                position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)',
-                                zIndex: 10, color: '#34d399'
-                            }}>
-                                <div style={{
-                                    width: '12px', height: '12px', borderRadius: '50%', border: '3px solid #34d399',
-                                    boxShadow: '0 0 5px rgba(52, 211, 153, 0.5)'
-                                }}></div>
-                            </div>
-                            <input
-                                type="text"
-                                placeholder="Pickup Location"
-                                value={pickup}
-                                onChange={e => setPickup(e.target.value)}
-                                style={{
-                                    width: '100%', padding: '1rem 1rem 1rem 3rem',
-                                    background: '#0f172a', /* Dark input on black card */
-                                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                                    borderRadius: '12px',
-                                    color: 'white',
-                                    fontSize: '1rem',
-                                    outline: 'none',
-                                    transition: 'all 0.3s'
-                                }}
-                                onFocus={e => {
-                                    e.target.style.borderColor = '#34d399';
-                                    e.target.style.boxShadow = '0 0 0 2px rgba(52, 211, 153, 0.2)';
-                                }}
-                                onBlur={e => {
-                                    e.target.style.borderColor = 'rgba(52, 211, 153, 0.3)';
-                                    e.target.style.boxShadow = 'none';
-                                }}
-                            />
-                        </div>
+                        {/* Pickup Input - Nigeria Autocomplete */}
+                        <AutocompleteInput
+                            placeholder={serviceType === 'parking' ? "Parking Location" : "Start Location"}
+                            value={pickup}
+                            onChange={setPickup}
+                            options={allNigeriaCities}
+                            icon={serviceType === 'parking' ? ParkingSquare : MapPin}
+                        />
 
                         {/* Connecting Line - Glowing */}
                         <div style={{
                             height: '30px',
-                            borderLeft: '2px dashed rgba(52, 211, 153, 0.5)',
+                            borderLeft: '2px dashed rgba(30, 203, 115, 0.5)',
                             marginLeft: '21px',
                             margin: '-4px 0',
                             position: 'relative',
                             zIndex: 0
                         }}></div>
 
-                        {/* Dropoff Input */}
-                        <div style={{ position: 'relative' }}>
-                            <div style={{
-                                position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)',
-                                zIndex: 10, color: '#34d399'
-                            }}>
-                                <MapPin size={20} fill="#34d399" color="#064e3b" />
-                            </div>
-                            <input
-                                type="text"
-                                placeholder="Dropoff Destination"
-                                value={dropoff}
-                                onChange={e => setDropoff(e.target.value)}
-                                style={{
-                                    width: '100%', padding: '1rem 1rem 1rem 3rem',
-                                    background: '#0f172a', /* Dark input on black card */
-                                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                                    borderRadius: '12px',
-                                    color: 'white',
-                                    fontSize: '1rem',
-                                    outline: 'none',
-                                    transition: 'all 0.3s'
-                                }}
-                                onFocus={e => {
-                                    e.target.style.borderColor = '#34d399';
-                                    e.target.style.boxShadow = '0 0 0 2px rgba(52, 211, 153, 0.2)';
-                                }}
-                                onBlur={e => {
-                                    e.target.style.borderColor = 'rgba(52, 211, 153, 0.3)';
-                                    e.target.style.boxShadow = 'none';
-                                }}
-                            />
-                        </div>
+                        {/* Dropoff Input - Nigeria Autocomplete */}
+                        <AutocompleteInput
+                            placeholder={serviceType === 'parking' ? "Destination (Optional)" : "Where to?"}
+                            value={dropoff}
+                            onChange={setDropoff}
+                            options={allNigeriaCities}
+                            icon={serviceType === 'parking' ? MapPin : Flag}
+                        />
 
-                        {/* Step 2: Select Ride */}
+                        {/* Step 2: Select Option */}
                         {hasSearched && (
                             <div style={{ margin: '1.5rem 0', animation: 'slideIn 0.3s ease-out' }}>
                                 <label style={{
                                     display: 'block', marginBottom: '0.75rem', fontWeight: '700', fontSize: '0.85rem',
                                     color: '#334155', textTransform: 'uppercase', letterSpacing: '1px'
                                 }}>
-                                    Available Rides
+                                    {serviceType === 'ride' ? 'Ride Options' : serviceType === 'flight' ? 'Flight Classes' : serviceType === 'metro' ? 'Metro Carriage' : serviceType === 'bike' ? 'Bike Type' : 'Parking Type'}
                                 </label>
                                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
-                                    <CarOption selected={carType === 'premium'} onClick={() => setCarType('premium')} label="Premium" price={getEstimate('premium')} />
-                                    <CarOption selected={carType === 'suv'} onClick={() => setCarType('suv')} label="SUV" price={getEstimate('suv')} />
-                                    <CarOption selected={carType === 'van'} onClick={() => setCarType('van')} label="Van" price={getEstimate('van')} />
+                                    {serviceType === 'ride' && (
+                                        <>
+                                            <OptionCard selected={carType === 'premium'} onClick={() => setCarType('premium')} label="Premium" price={getEstimate('premium')} icon={Car} />
+                                            <OptionCard selected={carType === 'suv'} onClick={() => setCarType('suv')} label="SUV" price={getEstimate('suv')} icon={Car} />
+                                            <OptionCard selected={carType === 'bus'} onClick={() => setCarType('bus')} label="Bus" price={getEstimate('bus')} icon={Bus} />
+                                        </>
+                                    )}
+                                    {serviceType === 'bike' && (
+                                        <>
+                                            <OptionCard selected={carType === 'moto'} onClick={() => setCarType('moto')} label="Motorbike" price={getEstimate('moto')} icon={Bike} />
+                                            <OptionCard selected={carType === 'bicycle'} onClick={() => setCarType('bicycle')} label="Bicycle" price={getEstimate('bicycle')} icon={Bike} />
+                                            <OptionCard selected={carType === 'delivery'} onClick={() => setCarType('delivery')} label="Delivery" price={getEstimate('delivery')} icon={Bike} />
+                                        </>
+                                    )}
+                                    {serviceType === 'flight' && (
+                                        <>
+                                            <OptionCard selected={carType === 'economy'} onClick={() => setCarType('economy')} label="Economy" price={getEstimate('economy')} icon={Plane} />
+                                            <OptionCard selected={carType === 'business'} onClick={() => setCarType('business')} label="Business" price={getEstimate('business')} icon={Plane} />
+                                            <OptionCard selected={carType === 'first'} onClick={() => setCarType('first')} label="First Class" price={getEstimate('first')} icon={Plane} />
+                                        </>
+                                    )}
+                                    {serviceType === 'metro' && (
+                                        <>
+                                            <OptionCard selected={carType === 'standard_metro'} onClick={() => setCarType('standard_metro')} label="Standard" price={getEstimate('standard_metro')} icon={Train} />
+                                            <OptionCard selected={carType === 'premium_metro'} onClick={() => setCarType('premium_metro')} label="Premium" price={getEstimate('premium_metro')} icon={Train} />
+                                            <OptionCard selected={carType === 'executive_metro'} onClick={() => setCarType('executive_metro')} label="Executive" price={getEstimate('executive_metro')} icon={Train} />
+                                        </>
+                                    )}
+                                    {serviceType === 'parking' && (
+                                        <>
+                                            <OptionCard selected={carType === 'standard_park'} onClick={() => setCarType('standard_park')} label="Standard" price={getEstimate('standard_park')} icon={ParkingSquare} />
+                                            <OptionCard selected={carType === 'secure_park'} onClick={() => setCarType('secure_park')} label="Secure" price={getEstimate('secure_park')} icon={Shield} />
+                                            <OptionCard selected={carType === 'valet'} onClick={() => setCarType('valet')} label="Valet" price={getEstimate('valet')} icon={Settings} />
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         )}
@@ -335,7 +379,7 @@ const BookingForm = () => {
                                 }}
                                 disabled={loading || !paymentMethod}
                             >
-                                {loading ? 'Processing Request...' : !paymentMethod ? 'Select Details Above' : `Confirm Ride • ${distance}km • ${paymentMethod === 'usdt' ? '₮' : '₦'}${getPrice().toLocaleString()}`}
+                                {loading ? 'Processing Request...' : !paymentMethod ? 'Select Details Above' : `Confirm ${serviceType === 'ride' ? 'Car/Bus' : serviceType === 'bike' ? 'Bike' : serviceType === 'flight' ? 'Flight' : serviceType === 'metro' ? 'Metro' : 'Parking'} • ${distance}km • ${paymentMethod === 'usdt' ? '₮' : '₦'}${getPrice().toLocaleString()}`}
                             </Button>
                         )}
                     </form>
@@ -352,6 +396,23 @@ const BookingForm = () => {
         </>
     );
 };
+
+const ServiceTab = ({ active, onClick, icon: Icon, label }) => (
+    <button 
+        onClick={onClick}
+        style={{ 
+            display: 'flex', alignItems: 'center', gap: '0.5rem', 
+            padding: '0.6rem 1rem', borderRadius: '12px',
+            background: active ? '#1ECB73' : 'rgba(15, 23, 42, 0.05)',
+            color: active ? 'white' : '#64748b',
+            fontWeight: '700', border: 'none', transition: 'all 0.3s',
+            whiteSpace: 'nowrap',
+            cursor: 'pointer'
+        }}
+    >
+        <Icon size={18} /> {label}
+    </button>
+);
 
 const PaymentOption = ({ selected, onClick, label }) => (
     <div
@@ -373,13 +434,13 @@ const PaymentOption = ({ selected, onClick, label }) => (
     </div>
 );
 
-const CarOption = ({ selected, onClick, label, price }) => (
+const OptionCard = ({ selected, onClick, label, price, icon: Icon }) => (
     <div
         onClick={onClick}
         style={{
             position: 'relative',
-            background: selected ? '#10b981' : '#f8fafc', // Solid Block: Emerald vs Light Slate
-            border: selected ? '1px solid #10b981' : '1px solid #e2e8f0', // Seamless border for active
+            background: selected ? '#10b981' : '#f8fafc',
+            border: selected ? '1px solid #10b981' : '1px solid #e2e8f0',
             padding: '1rem 0.5rem',
             borderRadius: '12px',
             cursor: 'pointer',
@@ -390,7 +451,6 @@ const CarOption = ({ selected, onClick, label, price }) => (
             overflow: 'hidden'
         }}
     >
-        {/* AI Scanline Effect for Active State */}
         {selected && (
             <div style={{
                 position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
@@ -400,7 +460,7 @@ const CarOption = ({ selected, onClick, label, price }) => (
         )}
 
         <div style={{ position: 'relative', zIndex: 1 }}>
-            <Car size={22} style={{
+            <Icon size={22} style={{
                 color: selected ? 'white' : '#64748b',
                 marginBottom: '0.5rem',
                 display: 'inline-block'
@@ -416,7 +476,7 @@ const CarOption = ({ selected, onClick, label, price }) => (
             <div style={{
                 fontSize: '0.75rem',
                 color: selected ? 'rgba(255,255,255,0.9)' : '#64748b',
-                fontFamily: 'monospace', // Tech feel
+                fontFamily: 'monospace',
                 marginTop: '0.25rem',
                 fontWeight: selected ? '600' : '400'
             }}>
