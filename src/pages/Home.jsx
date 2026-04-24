@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import BookingForm from '../components/BookingForm';
 import { Sparkles, Shield, Clock, ChevronDown, User, Bell, Settings, MapPin, CreditCard, HelpCircle, History, Car, ArrowRight } from 'lucide-react';
 import LiveRiderMap from '../components/LiveRiderMap';
-
+import { useAuth } from '../context/AuthContext';
 const Home = () => {
+    const { user } = useAuth();
+    const isRider = user && user.role === 'user';
+
     const scrollToDriverView = () => {
         const element = document.getElementById('driver-view');
         if (element) element.scrollIntoView({ behavior: 'smooth' });
@@ -13,12 +16,16 @@ const Home = () => {
     return (
         <div className="animate-fade-in" style={{
             backgroundColor: '#0f172a',
+            backgroundImage: `linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.5)), url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2070&auto=format&fit=crop')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
             minHeight: '100vh',
             position: 'relative',
             overflow: 'hidden'
         }}>
-            {/* Live Map Background System */}
-            <LiveRiderMap />
+            {/* The Live Map can now be shown as an overlay or removed. I will keep it commented if you want it back later */}
+            {/* <LiveRiderMap /> */}
 
 
             {/* Responsive Styles */}
@@ -47,21 +54,21 @@ const Home = () => {
                     <div className="hero-grid" style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
 
                         {/* Content wrapped in modern glass card */}
-                        <div className="hero-content-wrapper" style={{ 
-                            display: 'grid', 
-                            gridTemplateColumns: 'minmax(300px, 1.2fr) minmax(300px, 1fr)', 
-                            gap: '4rem', 
+                        <div className="hero-content-wrapper" style={{
+                            display: 'grid',
+                            gridTemplateColumns: isRider ? 'minmax(300px, 1.2fr) minmax(300px, 1fr)' : '1fr',
+                            gap: '4rem',
                             alignItems: 'center',
                             width: '100%',
                             maxWidth: '1200px',
-                            background: 'rgba(15, 23, 42, 0.4)',
-                            backdropFilter: 'blur(8px)',
-                            padding: '3rem',
+                            background: isRider ? 'rgba(15, 23, 42, 0.4)' : 'transparent',
+                            backdropFilter: isRider ? 'blur(8px)' : 'none',
+                            padding: isRider ? '3rem' : '1rem',
                             borderRadius: '32px',
-                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+                            border: isRider ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
+                            boxShadow: isRider ? '0 25px 50px -12px rgba(0, 0, 0, 0.5)' : 'none'
                         }}>
-                            <div className="left-text-content" style={{ color: 'white', textAlign: 'left' }}>
+                            <div className="left-text-content" style={{ color: 'white', textAlign: isRider ? 'left' : 'center', margin: isRider ? '0' : '0 auto' }}>
                                 <div style={{
                                     display: 'inline-flex',
                                     alignItems: 'center',
@@ -86,16 +93,18 @@ const Home = () => {
                                     letterSpacing: '-0.04em',
                                     color: 'white'
                                 }}>
-                                    Your Premium <br/> <span style={{ color: '#1ECB73' }}>Ride is Ready.</span>
+                                    Your Premium <br /> <span style={{ color: '#1ECB73' }}>Ride is Ready.</span>
                                 </h1>
-                                <p style={{ fontSize: '1.2rem', opacity: 0.8, lineHeight: '1.6', maxWidth: '450px', fontWeight: '400' }}>
+                                <p style={{ fontSize: '1.2rem', opacity: 0.8, lineHeight: '1.6', maxWidth: isRider ? '450px' : '800px', margin: isRider ? '0' : '0 auto', fontWeight: '400' }}>
                                     Experience the future of mobility. Real-time tracking, elite drivers, and instant bookings at your fingertips.
                                 </p>
                             </div>
 
-                            <div className="right-form-container">
-                                <BookingForm />
-                            </div>
+                            {isRider && (
+                                <div className="right-form-container">
+                                    <BookingForm />
+                                </div>
+                            )}
                         </div>
 
                     </div>
@@ -103,21 +112,21 @@ const Home = () => {
             </section>
 
             {/* Logos / Partners Section */}
-            <div style={{ 
-                position: 'relative', 
-                zIndex: 10, 
-                background: 'rgba(15, 23, 42, 0.6)', 
+            <div style={{
+                position: 'relative',
+                zIndex: 10,
+                background: 'rgba(15, 23, 42, 0.6)',
                 backdropFilter: 'blur(12px)',
                 padding: '2rem 0',
                 borderTop: '1px solid rgba(255, 255, 255, 0.05)',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.05)'
             }}>
                 <div className="container">
-                    <div style={{ 
-                        display: 'flex', 
-                        flexWrap: 'wrap', 
-                        justifyContent: 'center', 
-                        alignItems: 'center', 
+                    <div style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'center',
+                        alignItems: 'center',
                         gap: '4rem',
                         opacity: 0.6
                     }}>
@@ -185,7 +194,7 @@ const FeatureCard = ({ icon: Icon, title, desc }) => (
         onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
     >
         <div style={{ width: '60px', height: '60px', borderRadius: '1rem', background: '#ecfdf5', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-           <Icon size={32} color="#0CC05A" />
+            <Icon size={32} color="#0CC05A" />
         </div>
         <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '0.75rem', color: '#0f172a' }}>{title}</h3>
         <p style={{ color: '#64748b', lineHeight: '1.6' }}>{desc}</p>
@@ -193,15 +202,15 @@ const FeatureCard = ({ icon: Icon, title, desc }) => (
 );
 
 const LogoItem = ({ name }) => (
-    <div style={{ 
-        color: 'white', 
-        fontWeight: '900', 
-        fontSize: '1rem', 
+    <div style={{
+        color: 'white',
+        fontWeight: '900',
+        fontSize: '1rem',
         letterSpacing: '2px',
         display: 'flex',
         alignItems: 'center',
         gap: '0.5rem'
-     }}>
+    }}>
         <div style={{ width: '12px', height: '12px', background: '#1ECB73', borderRadius: '2px' }}></div>
         {name}
     </div>

@@ -8,6 +8,7 @@ import { User, ShieldCheck, Bike, RefreshCcw, Phone, ArrowRight, CheckCircle2 } 
 import { sendSMS } from '../utils/twilio';
 import OtpInput from '../components/common/OtpInput';
 import LiveRiderMap from '../components/LiveRiderMap';
+import bgImage from '../assets/homepage-bg.png';
 
 const Login = () => {
     const { login, signup, user } = useAuth();
@@ -68,7 +69,8 @@ const Login = () => {
             setStep(2);
             setResendTimer(30);
         } catch (err) {
-            setError('SMS delivery failed. Check your connection.');
+            console.error('Login error:', err);
+            setError(`SMS Error: ${err.message || 'Check your connection.'}`);
         } finally {
             setLoading(false);
         }
@@ -126,11 +128,14 @@ const Login = () => {
             alignItems: 'center',
             justifyContent: 'center',
             backgroundColor: '#0f172a',
+            backgroundImage: `linear-gradient(rgba(30, 203, 115, 0.8), rgba(15, 23, 42, 0.9)), url(${bgImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
             position: 'relative',
             overflow: 'hidden'
         }}>
             {/* Live Map Background System */}
-            <LiveRiderMap />
+            {/* <LiveRiderMap /> */}
 
             <div style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '420px', padding: '1rem' }}>
                 <Card glass style={{ 
@@ -174,17 +179,32 @@ const Login = () => {
                                 </div>
                                 <input
                                     type="tel"
-                                    placeholder="Enter Phone Number"
+                                    placeholder="e.g. +2348012345678"
                                     value={phone}
                                     onChange={e => setPhone(e.target.value)}
                                     style={{
-                                        width: '100%', padding: '1.2rem 1.2rem 1.2rem 3rem',
-                                        background: '#f8fafc', border: '2px solid #e2e8f0',
-                                        borderRadius: '16px', fontSize: '1rem', fontWeight: '600',
-                                        outline: 'none', transition: 'all 0.2s'
+                                        width: '100%',
+                                        padding: '1.2rem 1.2rem 1.2rem 3rem',
+                                        background: '#ffffff',
+                                        border: '2px solid #e2e8f0',
+                                        borderRadius: '16px',
+                                        fontSize: '1.1rem',
+                                        fontWeight: '700',
+                                        color: '#0f172a',
+                                        caretColor: '#1ECB73',
+                                        outline: 'none',
+                                        transition: 'all 0.2s',
+                                        boxSizing: 'border-box',
+                                        letterSpacing: '0.5px'
                                     }}
-                                    onFocus={e => e.target.style.borderColor = '#1ECB73'}
-                                    onBlur={e => e.target.style.borderColor = '#e2e8f0'}
+                                    onFocus={e => {
+                                        e.target.style.borderColor = '#1ECB73';
+                                        e.target.style.boxShadow = '0 0 0 4px rgba(30,203,115,0.12)';
+                                    }}
+                                    onBlur={e => {
+                                        e.target.style.borderColor = '#e2e8f0';
+                                        e.target.style.boxShadow = 'none';
+                                    }}
                                     required
                                 />
                             </div>

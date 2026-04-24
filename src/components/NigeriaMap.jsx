@@ -2,15 +2,15 @@ import React from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const activeCities = [
-    { name: 'Lagos', lat: 6.5244, lng: 3.3792, drivers: 142 },
-    { name: 'Abuja', lat: 9.0765, lng: 7.3986, drivers: 85 },
-    { name: 'Port Harcourt', lat: 4.8156, lng: 7.0498, drivers: 56 },
-    { name: 'Kano', lat: 12.0022, lng: 8.5920, drivers: 45 },
-    { name: 'Ibadan', lat: 7.3775, lng: 3.9470, drivers: 62 }
-];
+import { allMapLocations } from '../utils/locations';
 
 const NigeriaMap = () => {
+    // Enrich with random driver counts for visual effect
+    const mappedLocations = allMapLocations.map(loc => ({
+        ...loc,
+        drivers: Math.floor(Math.random() * 150) + 10
+    }));
+
     return (
         <div style={{
             height: '500px',
@@ -35,23 +35,23 @@ const NigeriaMap = () => {
                 />
 
                 {/* City Markers */}
-                {activeCities.map((city) => (
+                {mappedLocations.map((loc) => (
                     <CircleMarker
-                        key={city.name}
-                        center={[city.lat, city.lng]}
+                        key={`${loc.name}-${loc.state}`}
+                        center={[loc.lat, loc.lng]}
                         pathOptions={{
-                            fillColor: '#10B981',
+                            fillColor: loc.type === 'capital' ? '#10B981' : '#34D399',
                             fillOpacity: 0.6,
                             color: '#34D399',
                             weight: 1,
                             opacity: 0.8
                         }}
-                        radius={8}
+                        radius={loc.type === 'capital' ? 6 : 4}
                     >
                         <Popup>
                             <div style={{ color: '#0f172a', fontWeight: 'bold' }}>
-                                {city.name}<br />
-                                <span style={{ color: '#059669' }}>● {city.drivers} Active Drivers</span>
+                                {loc.name}, {loc.state}<br />
+                                <span style={{ color: '#059669' }}>● {loc.drivers} Active Drivers</span>
                             </div>
                         </Popup>
                     </CircleMarker>

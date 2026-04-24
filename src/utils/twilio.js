@@ -3,7 +3,18 @@ export const sendSMS = async (to = '+18777804236', body = 'Ahoy 👋') => {
   const authToken = import.meta.env.VITE_TWILIO_AUTH_TOKEN;
   const messagingServiceSid = import.meta.env.VITE_TWILIO_MESSAGING_SERVICE_SID;
   
-  // Note: btoa is safe for browser environments.
+  // Development fallback
+  if (!accountSid || !authToken || accountSid.includes('your_') || accountSid.includes('ACxxxx')) {
+    console.log('--- TWILIO DEV MODE ---');
+    console.log(`To: ${to}`);
+    console.log(`Body: ${body}`);
+    console.log('-----------------------');
+    
+    // Simulate API delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return { sid: 'mock_sid_for_dev', status: 'sent' };
+  }
+
   const encodedCredentials = btoa(`${accountSid}:${authToken}`);
 
   const details = {
@@ -26,11 +37,13 @@ export const sendSMS = async (to = '+18777804236', body = 'Ahoy 👋') => {
       body: formBody
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        console.error('Twilio API Error:', data);
+        throw new Error(data.message || `Twilio error! status: ${response.status}`);
     }
 
-    const data = await response.json();
     return data;
   } catch (error) {
     console.error('Error sending SMS via Twilio:', error);

@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import DriverLogin from './pages/DriverLogin';
 import DriverDashboard from './pages/DriverDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminLayout from './components/admin/AdminLayout';
@@ -21,7 +22,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="profile" element={<Profile />} />
         <Route path="login" element={<Login />} />
-        <Route path="driver-login" element={<Login />} />
+        <Route path="driver-login" element={<DriverLogin />} />
         <Route path="admin-login" element={<Login />} />
         <Route path="driver-dashboard" element={<DriverDashboard />} />
         <Route path="admin" element={<AdminLayout />}>

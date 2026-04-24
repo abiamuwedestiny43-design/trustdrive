@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "TrustDrive Driver",
+    "slug": "trustdrive-driver",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#1ECB73"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.trustdrive.driver",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "TrustDrive needs your location to show you nearby ride requests.",
+        "NSLocationAlwaysUsageDescription": "TrustDrive needs background location to track your ride."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1ECB73"
+      },
+      "package": "com.trustdrive.driver",
+      "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION", "ACCESS_BACKGROUND_LOCATION"]
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow TrustDrive to use your location for ride tracking."
+        }
+      ]
+    ]
+  }
+}
